@@ -134,13 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      final authCredential =
-        await _auth.signInWithCredential(phoneAuthCredential);
+      final authCredential = await _auth.signInWithCredential(phoneAuthCredential);
       setState(() {
         showLoading = false;
       });
 
-      if(authCredential?.user != null){
+      if(authCredential.user != null){
         Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
       }
 

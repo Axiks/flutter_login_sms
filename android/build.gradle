@@ -1,7 +1,7 @@
 ext {
     compileSdkVersion = 30
     defaultTargetSdkVersion = 30
-    defaultMinSdkVersion = 16
+    defaultMinSdkVersion = 19
 }
 buildscript {
     ext.kotlin_version = '1.6.10'
