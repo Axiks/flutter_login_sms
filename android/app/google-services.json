@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "95111765048",
+    "project_id": "sms-login-ddc3e",
+    "storage_bucket": "sms-login-ddc3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95111765048:android:4378c8787b27ee0eb39acd",
+        "android_client_info": {
+          "package_name": "com.example.sms_login_flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95111765048-31r4ok73l1241mevceopfbv1u62o95nj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sms_login_flutter_app",
+            "certificate_hash": "668821cb12d953fdd6d17979373f26b3eb3a8de1"
+          }
+        },
+        {
+          "client_id": "95111765048-shg8dimf7n971g8siij3s823ujk8p4oi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0gDgrjyZHFWO-TLLEKaTyoaJ8g9tNj3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95111765048-shg8dimf7n971g8siij3s823ujk8p4oi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

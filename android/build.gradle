@@ -1,3 +1,8 @@
+ext {
+    compileSdkVersion = 30
+    defaultTargetSdkVersion = 30
+    defaultMinSdkVersion = 16
+}
 buildscript {
     ext.kotlin_version = '1.6.10'
     repositories {
@@ -7,6 +12,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.google.gms:google-services:4.3.10'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
