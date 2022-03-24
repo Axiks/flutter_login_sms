@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sms_login_flutter_app/screens/home_screen.dart';
 
 enum MobileVerificationState {
@@ -19,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final otpController = TextEditingController();
   
   FirebaseAuth _auth = FirebaseAuth.instance;
+  GoogleSignIn _googleSingIn  = GoogleSignIn(scopes: ['email']);
 
   late String verificationId;
 
@@ -77,6 +79,37 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.lightBlue,
           textColor: Colors.white,
         ),
+        SizedBox(height: 16,),
+        FlatButton(onPressed: () async {
+          setState(() {
+            showLoading = true;
+          });
+          final GoogleSignInAccount? googleUser = await _googleSingIn.signIn();
+          if(googleUser == null) {
+            setState(() {
+              showLoading = false;
+            });
+            _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text("Error sign in")));
+            return;
+          }
+          else{
+            setState(() {
+              showLoading = false;
+            });
+
+            // Obtain the auth details from the request
+            final GoogleSignInAuthentication? googleAuth = await googleUser.authentication;
+
+            // Create a new credential
+            final OAuthCredential credential = GoogleAuthProvider.credential(
+              accessToken: googleAuth?.accessToken,
+              idToken: googleAuth?.idToken,
+            );
+
+            _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text("Sign in")));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen(oAuthCredential: credential)));
+          }
+        },child: Text("Sign in Google")),
         Spacer()
       ],
     );
@@ -128,7 +161,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) async{
-
     setState(() {
       showLoading = true;
     });
